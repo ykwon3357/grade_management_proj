@@ -12,7 +12,7 @@ public class Update implements View {
 			return;
 		}
 		System.out.println(updateTitle);
-		System.out.print("수정할 idx 입력: ");
+		System.out.print("수정할 학번 입력: ");
 		int idx=0;;
 		try {
 			idx = Integer.parseInt(scan.next());
@@ -26,14 +26,14 @@ public class Update implements View {
 			}
 		}
 		if (!flag) {
-			System.out.println("잘못된 idx를 입력했습니다!");
+			System.out.println("잘못된 학번을 입력했습니다!");
 			data.dto = new Dto(0, null, 0, 0, 0);
 		} else {
 			System.out.println("수정할 사항을 선택하세요");
 			
 			int num=0;
 			do {
-				System.out.print("이름(1) 국어(2) 영어(3) 수학(4) 완료(5)");
+				System.out.print("이름(1) 국어(2) 영어(3) 수학(4) 완료(5): ");
 					num = scan.nextInt();
 					switch (num) {
 					case 1:

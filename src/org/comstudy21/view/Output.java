@@ -11,10 +11,12 @@ public class Output implements View {
 			System.out.println("출력할 데이터가 없습니다!");
 			return;
 		}
+		System.out.println("――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――");
 		System.out.println(outputTitle);
 	 	for(Dto d: data.dtoArr){
 			System.out.println(d);
 		}
+	 	System.out.println("――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――");
 	}
 }
 

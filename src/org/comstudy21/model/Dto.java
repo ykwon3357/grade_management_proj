@@ -110,9 +110,8 @@ public class Dto {
 
 	@Override
 	public String toString() {
-		return "Dto [idx=" + idx + ", kor=" + kor + ", eng=" + eng + ", math="
-				+ math + ", tot=" + tot + ", avg=" + avg + ", rank=" + rank
-				+ ", name=" + name + ", grade=" + grade + "]";
+		return "[" + rank+"등] "+"학번: " + idx + " |국어: " + kor + " |영어: " + eng + " |수학: "
+				+ math + " |총점: " + tot + " |평균: " + avg + " |name=" + name + " |grade=" + grade + "|";
 	}
 	
 	

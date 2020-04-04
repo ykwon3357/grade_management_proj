@@ -12,7 +12,7 @@ import org.comstudy21.view.Update;
 import org.comstudy21.view.View;
 
 public interface R {
-	String appTitle="::::: 성적 관리 프로그램 :::::";
+	String appTitle="■■■■■■■■■ 성적 관리 프로그램 ■■■■■■■■■";
 	String inputTitle="::: 입력 기능 :::";
 	String outputTitle="::: 출력 기능 :::";
 	String searchTitle="::: 검색 기능 :::";
