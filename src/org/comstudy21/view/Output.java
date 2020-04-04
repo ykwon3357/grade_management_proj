@@ -4,6 +4,7 @@ import org.comstudy21.model.Dto;
 
 public class Output implements View {
 
+	
 	@Override
 	public void display() {
 		if(data.dtoArr.length==0){
@@ -11,9 +12,10 @@ public class Output implements View {
 			return;
 		}
 		System.out.println(outputTitle);
-		for(Dto d: data.dtoArr){
+	 	for(Dto d: data.dtoArr){
 			System.out.println(d);
 		}
 	}
-
 }
+
+

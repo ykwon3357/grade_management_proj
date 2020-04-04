@@ -9,7 +9,12 @@ public class Menu implements View {
 		}
 		System.out.println();
 		System.out.print("Choice: ");
-		data.no=scan.nextInt();
+		try {
+			data.no=Integer.parseInt(scan.next());
+		} catch (NumberFormatException e) {
+			System.out.println("잘못 입력했습니다!");
+			display();
+		}
 	}
 
 }

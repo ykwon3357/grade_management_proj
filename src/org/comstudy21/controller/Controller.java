@@ -1,7 +1,12 @@
 package org.comstudy21.controller;
 import static org.comstudy21.resource.R.*;
+
+import org.comstudy21.view.Search;
 public class Controller {
 	public static void search(){
+		viewArr[3].display();
+		data.dtoArr=dao.select(data.dto);
+		((Search)viewArr[3]).display(data.dtoArr);
 		
 	}
 	public static void service(){
@@ -19,10 +24,18 @@ public class Controller {
 			search();
 			break;
 		case 4:
+			search();
 			viewArr[data.no].display();
+			if(data.dto.getIdx()!=0) {
+				dao.update(data.dto);
+			}
 			break;
 		case 5:
+			search();
 			viewArr[data.no].display();
+			if(data.dto.getIdx()!=0) {
+				dao.delete(data.dto);
+			}
 			break;
 		case 6:
 			System.out.println("프로그램 종료!");

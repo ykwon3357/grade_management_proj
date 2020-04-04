@@ -52,7 +52,7 @@ public class Dto {
 	}
 
 	public int getTot() {
-		return tot;
+		return kor+eng+math;
 	}
 
 	public void setTot(int tot) {
@@ -60,7 +60,7 @@ public class Dto {
 	}
 
 	public double getAvg() {
-		return avg;
+		return Math.round((this.getTot())/3.0)*10/10.0;
 	}
 
 	public void setAvg(double avg) {
@@ -84,6 +84,23 @@ public class Dto {
 	}
 
 	public String getGrade() {
+		switch ((int) this.getAvg() / 10) {
+		case 10:
+		case 9:
+			grade="A";
+			break;
+		case 8:
+			grade="B";
+			break;
+		case 7:
+			grade="C";
+			break;
+		case 6:
+			grade="D";
+			break;
+		default:
+			grade="F";
+		}
 		return grade;
 	}
 
