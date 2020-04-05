@@ -8,6 +8,7 @@ public class Dao {
 	private int seq = 1;
 	private int top = 0;
 	private Dto[] dtoArr = new Dto[MAX];
+	private int num=0;
 
 //	{
 //		dtoArr[top++]=new Dto(seq++,"kim",90,92,91);
@@ -37,15 +38,32 @@ public class Dao {
 		dtoArr[top] = dto;
 		dtoArr[top].setGrade(dto.getGrade());
 		dtoArr[top].setIdx(seq++);
-
+		//dtoArr[top].setRank(top+1);
 		top++;
+		
 		sortdown();
 
 		System.out.println("입력 완료!");
 	}
 
 	public void sortdown() {
+		/*
+		for (int i = 0; i < top; i++) {
+			dtoArr[i].setRank(i + 1);
+		}
+		int temp=0;
+		        for (int i = 0; i < top - 1; i++) {
+		            for (int j = i+1; j < top; j++){
+		                if (dtoArr[i].getAvg() < dtoArr[j].getAvg()) {
+		                    temp=dtoArr[i].getRank();
+		                    dtoArr[i].setRank(dtoArr[j].getRank());
+		                    dtoArr[j].setRank(temp);
+		                }
+		            }
+		        }
+		        */
 		// 평균에 따라 등수 내림차순 정렬
+		     
 		Dto temp = new Dto();
 		;
 		for (int i = 0; i < top - 1; i++) {
@@ -67,11 +85,11 @@ public class Dao {
 		// 평균이 같으면 뒤에 등수를 앞 등수로, 그 뒤 등수들은 당겨준다
 		for (int i = 0; i < top - 1; i++) {
 			for (int j = i + 1; j < top; j++) {
-				if (dtoArr[i].getAvg() == dtoArr[j].getAvg()) {
+				if (dtoArr[i].getTot() == dtoArr[j].getTot()) {
 					dtoArr[j].setRank(dtoArr[i].getRank());
-					for (int k = j + 1; k < top; k++) {
-						dtoArr[k].setRank(dtoArr[k - 1].getRank() + 1);
-					}
+//					for (int k = j + 1; k < top; k++) {
+//						dtoArr[k].setRank(dtoArr[k - 1].getRank() + 1);
+//					}
 				}
 			}
 		}
@@ -210,9 +228,9 @@ public class Dao {
 		}
 
 		if (!flag) {
-			//System.out.println("삭제 실패!");
+			System.out.println("삭제 실패!");
 		} else {
-			//System.out.println("삭제 성공!");
+			System.out.println("삭제 성공!");
 			sortdown();
 		}
 
