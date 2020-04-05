@@ -1,5 +1,7 @@
 package org.comstudy21.view;
 
+import static org.comstudy21.resource.R.mapper;
+
 import org.comstudy21.model.Dto;
 
 public class Update implements View {
@@ -8,7 +10,8 @@ public class Update implements View {
 
 	@Override
 	public void display() {
-		if (data.dtoArr.length == 0) {
+		Dto[] arr=(Dto[])mapper.get("search[]");
+		if (arr.length == 0) {
 			return;
 		}
 		System.out.println(updateTitle);
@@ -19,15 +22,16 @@ public class Update implements View {
 		} catch (NumberFormatException e) {
 		}
 		boolean flag = false;
-		for (int i = 0; i < data.dtoArr.length; i++) {
-			if (data.dtoArr[i].getIdx() == idx) {
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i].getIdx() == idx) {
 				flag = true;
 				break;
 			}
 		}
 		if (!flag) {
 			System.out.println("잘못된 학번을 입력했습니다!");
-			data.dto = new Dto(0, null, 0, 0, 0);
+			Dto dto = new Dto(0, null, 0, 0, 0);
+			mapper.put("update", dto);
 		} else {
 			System.out.println("수정할 사항을 선택하세요");
 			
@@ -56,8 +60,10 @@ public class Update implements View {
 			}while(num!=5);
 			System.out.println("수정완료!");
 			if(name.equals("")) name="n";
-			data.dto = new Dto(idx, name, kor, eng, math);
+			Dto dto = new Dto(idx, name, kor, eng, math);
+			mapper.put("update", dto);
 		}
+		
 	}
 
 }

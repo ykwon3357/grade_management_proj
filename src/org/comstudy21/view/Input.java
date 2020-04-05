@@ -7,15 +7,16 @@ public class Input implements View {
 	@Override
 	public void display() {
 		System.out.println(inputTitle);
-		data.dto=new Dto();
+		Dto dto=new Dto();
 		System.out.print("성명 입력: ");
-		data.dto.setName(scan.next());
+		dto.setName(scan.next());
 		System.out.print("국어 입력: ");
-		data.dto.setKor(scan.nextInt());
+		dto.setKor(scan.nextInt());
 		System.out.print("영어 입력: ");
-		data.dto.setEng(scan.nextInt());
+		dto.setEng(scan.nextInt());
 		System.out.print("수학 입력: ");
-		data.dto.setMath(scan.nextInt());
+		dto.setMath(scan.nextInt());
+		mapper.put("input", dto);
 		
 	}
 

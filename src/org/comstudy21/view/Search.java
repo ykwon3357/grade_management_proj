@@ -7,9 +7,10 @@ public class Search implements View {
 	@Override
 	public void display() {
 		System.out.println(searchTitle);
-		data.dto=new Dto();
+		Dto dto=new Dto();
 		System.out.print("검색할 이름 입력: ");
-		data.dto.setName(scan.next());
+		dto.setName(scan.next());
+		mapper.put("search", dto);
 	}
 	public void display(Dto[] arr) {
 		if(arr.length==0) {

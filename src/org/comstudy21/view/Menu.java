@@ -10,7 +10,8 @@ public class Menu implements View {
 		System.out.println();
 		System.out.print("Choice: ");
 		try {
-			data.no=Integer.parseInt(scan.next());
+			int no=Integer.parseInt(scan.next());
+			mapper.put("menu", no);
 		} catch (NumberFormatException e) {
 			System.out.println("잘못 입력했습니다!");
 			display();

@@ -25,6 +25,6 @@ public interface R {
 	
 	Dao dao = Dao.getInstance();
 	
-	Data data= new Data();
+	Map mapper = new Map(100);
 
 }

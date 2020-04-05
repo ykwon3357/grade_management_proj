@@ -7,13 +7,14 @@ public class Output implements View {
 	
 	@Override
 	public void display() {
-		if(data.dtoArr.length==0){
+		
+		if(((Dto[])mapper.get("output")).length==0){
 			System.out.println("출력할 데이터가 없습니다!");
 			return;
 		}
 		System.out.println("――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――");
 		System.out.println(outputTitle);
-	 	for(Dto d: data.dtoArr){
+	 	for(Dto d: (Dto[])mapper.get("output")){
 			System.out.println(d);
 		}
 	 	System.out.println("――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――");

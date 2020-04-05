@@ -1,40 +1,44 @@
 package org.comstudy21.controller;
 import static org.comstudy21.resource.R.*;
 
+import org.comstudy21.model.Dto;
 import org.comstudy21.view.Search;
 public class Controller {
 	public static void search(){
 		viewArr[3].display();
-		data.dtoArr=dao.select(data.dto);
-		((Search)viewArr[3]).display(data.dtoArr);
+		mapper.put("search[]", dao.select((Dto)mapper.get("search")));
+		((Search)viewArr[3]).display((Dto[])mapper.get("search[]"));
 		
 	}
 	public static void service(){
 			viewArr[0].display();
-		switch(data.no){
+			int no=(Integer)mapper.get("menu");
+		switch(no){
 		case 1:
-			viewArr[data.no].display();
-			dao.insert(data.dto);
+			viewArr[no].display();
+			dao.insert((Dto)mapper.get("input"));
 			break;
 		case 2:
-			data.dtoArr=dao.selectAll();
-			viewArr[data.no].display();
+			mapper.put("output", dao.selectAll());
+			viewArr[no].display();
 			break;
 		case 3:
 			search();
 			break;
 		case 4:
 			search();
-			viewArr[data.no].display();
-			if(data.dto.getIdx()!=0) {
-				dao.update(data.dto);
+			viewArr[no].display();
+			Dto dto = (Dto)mapper.get("update");
+			if(dto.getIdx()!=0) {
+				dao.update(dto);
 			}
 			break;
 		case 5:
 			search();
-			viewArr[data.no].display();
-			if(data.dto.getIdx()!=0) {
-				dao.delete(data.dto);
+			viewArr[no].display();
+			dto = (Dto)mapper.get("delete");
+			if(dto.getIdx()!=0) {
+				dao.delete(dto);
 			}
 			break;
 		case 6:

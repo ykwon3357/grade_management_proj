@@ -1,22 +1,13 @@
 package org.comstudy21.model;
 
 import static org.comstudy21.resource.R.scan;
-import static org.comstudy21.resource.R.viewArr;
 
 public class Dao {
 	public static final int MAX = 100;
 	private int seq = 1;
 	private int top = 0;
 	private Dto[] dtoArr = new Dto[MAX];
-	private int num=0;
 
-//	{
-//		dtoArr[top++]=new Dto(seq++,"kim",90,92,91);
-//		dtoArr[top++]=new Dto(seq++,"you",80,85,90);
-//		dtoArr[top++]=new Dto(seq++,"kim",100,95,100);
-//		dtoArr[top++]=new Dto(seq++,"lee",70,60,87);
-//		dtoArr[top++]=new Dto(seq++,"kang",90,70,80);
-//	}
 	private Dao() {
 
 	}
@@ -38,7 +29,6 @@ public class Dao {
 		dtoArr[top] = dto;
 		dtoArr[top].setGrade(dto.getGrade());
 		dtoArr[top].setIdx(seq++);
-		//dtoArr[top].setRank(top+1);
 		top++;
 		
 		sortdown();
@@ -47,21 +37,6 @@ public class Dao {
 	}
 
 	public void sortdown() {
-		/*
-		for (int i = 0; i < top; i++) {
-			dtoArr[i].setRank(i + 1);
-		}
-		int temp=0;
-		        for (int i = 0; i < top - 1; i++) {
-		            for (int j = i+1; j < top; j++){
-		                if (dtoArr[i].getAvg() < dtoArr[j].getAvg()) {
-		                    temp=dtoArr[i].getRank();
-		                    dtoArr[i].setRank(dtoArr[j].getRank());
-		                    dtoArr[j].setRank(temp);
-		                }
-		            }
-		        }
-		        */
 		// 평균에 따라 등수 내림차순 정렬
 		     
 		Dto temp = new Dto();
@@ -81,7 +56,7 @@ public class Dao {
 		}
 
 		// 중복 등수 처리
-		// 1 22 3위
+		// 1 22 3위 로 하려면 주석처리 지우면 됨. 기본은 1 22 4위
 		// 평균이 같으면 뒤에 등수를 앞 등수로, 그 뒤 등수들은 당겨준다
 		for (int i = 0; i < top - 1; i++) {
 			for (int j = i + 1; j < top; j++) {
